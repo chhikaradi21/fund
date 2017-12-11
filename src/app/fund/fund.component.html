@@ -1,0 +1,284 @@
+<div class="row margin-bottom-100">
+  <div class="col-12 col-md-12 text-center margin-bottom-50 margin-top-50">
+    <h1>
+            <span class="badge badge-default color-theme-default">
+                Help Build A Classroom For Students At Sikkim Himalayan Academy
+            </span>
+    </h1>
+  </div>
+  <div class="col-12 col-md-10 offset-md-1">
+    <div class="row">
+
+      <div class="col-12 col-md-8">
+        <div class="row">
+
+
+          <div class="col-md-12 carousel slide" id="carouselExampleIndicators" data-ride="carousel"
+               style="width: 100%;">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="item.index"
+                  *ngFor="let item of slidesData"
+                  [ngClass]="item.activeClass">
+              </li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item"
+                   *ngFor="let item of slidesData"
+                   [ngClass]="item.activeClass">
+                <img class="d-block img-fluid" src="/assets/images/{{item.src}}" alt="First slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+               data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+               data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+          <div class="margin-top-50" style="width: 770px;">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home" role="tab">STORY</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#profile" role="tab">UPDATES({{updatesArr.length}})</a>
+              </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content margin-top-20">
+              <div class="tab-pane active" id="home" role="tabpanel">
+                <div class="">
+                  <div class="jumbotron color-theme-default">
+                    <h3>Education is the passport to the future, for tomorrow belongs to those
+                      who
+                      prepare for it today</h3>
+                    <p class="lead"> - Malcom X </p>
+                    <hr class="my-4">
+                    <p> As we read this quote, I'm sure we believe that education is that one
+                      passport that every child deserves to hold.
+                      That being said, the sad truth is, it is a lot more difficult for some
+                      compared to others.
+                    </p>
+                    <p>
+                      The Sikkim Himalayan Academy, a free residential school on Eastern Himalayas
+                      for the underprivileged children from the remote mountains, hopes to
+                      overcome all odds stacked up against some of the unfortunate kids and
+                      provide them all with excellent education.
+                    </p>
+                    <p>
+                      Project Alpha, the first of its kind, is a project spearheaded by a couple,
+                      Tracey and Ajay who connect their passion for bike riding with a cause, the
+                      cause being education this time. As ardent bikers, both Tracey and Ajay are
+                      touring across the length and breadth of the country on their bikes and
+                      achieving the following objectives for this project.
+                    </p>
+                    <ul class="">
+                      <li>Covering minimum of 15 states and 10,000 km on their respective bikes (
+                        neither is a pillion, both are riders)
+                      </li>
+                      <li>Raising 5 lakh rupees via confounding portal ImpactGuru to help build
+                        classroom for the much deserved kids at Sikkim Himalayan Academy.
+                      </li>
+                      <li>Understanding perspectives on education enroute from people across the
+                        nation.
+                      </li>
+                      <li>Create awareness and educating ourselves, alongwith others, about the
+                        diverse culture of our country.
+                      </li>
+                    </ul>
+                    <hr class="my-4">
+                    <h3>Materials Used To Make Study Room</h3>
+                    <table class="table tablemobile">
+                      <thead>
+                      <tr>
+                        <th (click)="setFieldNameSort('title')"><span
+                                class="font-color-water-blue"
+                                style="cursor: pointer"><u>MATERIAL</u></span></th>
+                        <th (click)="setFieldNameSort('quantity')"><span
+                                class="font-color-water-blue"
+                                style="cursor: pointer"><u>Quantity</u></span></th>
+                        <th (click)="setFieldNameSort('itemCost')"><span
+                                class="font-color-water-blue"
+                                style="cursor: pointer"><u>ITEM COST</u></span>
+                        </th>
+                        <th (click)="setFieldNameSort('totalCost')"><span
+                                class="font-color-water-blue"
+                                style="cursor: pointer"><u>TOTAL</u></span></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let item of materialsUsedArr | sort : selectedFieldPipe">
+                        <td>{{item.title}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.itemCost}}</td>
+                        <td>{{item.totalCost}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{totalCostObj.title}}</td>
+                        <td>{{totalCostObj.quantity}}</td>
+                        <td>{{totalCostObj.itemCost}}</td>
+                        <td>{{totalCostObj.totalCost}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <p><b>Note: </b> This fundraiser includes transaction charges, website charges
+                      etc.
+                      And any extra amount received will go to the school's cause. </p>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="tab-pane" id="profile" role="tabpanel">
+                <span style="color: #7FB800 !important; font-size: 20px;"> <b> UPDATE # {{selectedUpdate.index}} </b> </span>
+                <span style="float: right; color: #9b9b9b"> {{getDaysString(selectedUpdate.createdOn)}} </span>
+                <div style="border-top: 1px solid #000 !important;"><p class="margin-top-20">
+                  {{selectedUpdate.desc}} </p></div>
+                <div style="border-bottom: 1px solid #000 !important;">
+                  <img class="margin-bottom-50" src="{{selectedUpdate.imageSrc}}" alt="Smiley face"
+                       height="300" width="400" *ngIf="selectedUpdate.imageSrc">
+                </div>
+                <div class="margin-top-10">
+                  <h2 style="color: #7FB800 !important;"><b>Show Previous Updates</b></h2>
+                  <button type="button" class="btn btn-warning margin-top-30 hover-green"
+                          (click)="selectUpdate(item)"
+                          *ngFor="let item of updatesArr"
+                          style="color: #000;width: 200px;margin-left:20px;border-color: #000; background-color: #fff; border-radius: 0 !important;">
+                    UPDATE # {{item.index}}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="row">
+
+          <div class="col-md-12" style="background-color: #f7f7ee">
+            <h3 class="margin-top-20 text-align-center" style="color: #0D2C54 !important;"> Rs. 300000 </h3>
+            <p class="text-align-center" style="color: #565656 !important;"> of Rs. 500000 </p>
+            <div class="progress-outer clearfix margin-left-10 row">
+              <div class="progress col-md-10"
+                   style="height: 5px;background-color: #d0d1cc !important;margin-top: 10px;">
+                <div style="width:62%; background-color: #7FB800 !important; margin-left: -15px"
+                     aria-valuemax="100" aria-valuemin="0" aria-valuenow="62"
+                     role="progressbar" class="progress-bar"></div>
+              </div>
+              <div class="pogress-rate col-md-2"><span
+                      style="vertical-align:baseline !important; color: #9B9B9B">62%</span></div>
+            </div>
+            <p class="text-align-center" style="color: #565656 !important; "> Raised by 65 people in 137
+              days </p>
+
+            <div class=" col-md-12">
+              <div class="row">
+                <div class="col-md-1">
+                  <span style="color: #565656 !important; "> Rs. </span>
+                </div>
+                <div class="col-md-3">
+
+                  <input type="text" id="usr"
+                         style="outline-style: none; border: 1px solid #FC0D1C !important; width: 100%; height: 35px;">
+                </div>
+                <div class="col-md-6">
+                  <span style="color: #565656 !important; "> for this cause </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 margin-top-20">
+              <button type="button" class="btn btn-warning"
+                      style="width: 100%; height: 50px; background-color: #f6511d; font-size: 25px; border-radius: 0 !important;">
+                <b> DONATE NOW </b>
+              </button>
+              <p style="color: #565656 !important; "> Indian tax benefits available for donors </p>
+            </div>
+            <div class="col-md-12 margin-bottom-20">
+              <button type="button" class="btn btn-warning"
+                      style="width: 100%; height: 50px; background-color: #496AAC; font-size: 25px; border-radius: 0 !important;">
+                <b> SHARE ON FACEBOOK </b>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-12 margin-top-20" style="background-color: #ECEDEE"
+               *ngFor="let item of campaignInfoArr">
+            <div style="border-bottom: 1px solid #e1e2e3;" class="margin-top-10 margin-bottom-10">
+              <b> {{item.title}} </b>
+            </div>
+            <div class="numberCircle margin-bottom-10">{{item.subTitle}}</div>
+            <div style="display: inline-block !important;">{{item.desc}}</div>
+          </div>
+
+          <div class="col-12 col-md-12 margin-top-20"
+               style="padding-left: 0 !important; padding-right: 0 !important;">
+            <div style="border-bottom: 1px solid #000 !important;"><span
+                    style="color: #7FB800; font-size: 25px;" class="margin-bottom-10"> <b>Create A Support Fundraiser</b> </span>
+            </div>
+
+            <div class="margin-top-30">
+              <label style="font-size: 22px;" class="margin-left-50"> <b> GOAL </b></label>
+              <input type="text"
+                     class="margin-left-10"
+                     placeholder="Please enter amount"
+                     style="outline-style: none; !important; width: 200px; height: 40px;">
+              <button type="button" class="btn btn-warning margin-top-30"
+                      style="width: 200px;margin-left:136px;border-color: #000; background-color: #fff; border-radius: 0 !important;">
+                <span style="color: #000">  START A FUNDRAISER </span>
+              </button>
+            </div>
+
+          </div>
+
+          <div class="col-12 col-md-12 margin-top-40"
+               style="padding-left: 0 !important; padding-right: 0 !important;">
+            <div style="border-bottom: 1px solid #000 !important;">
+              <span style="color: #7FB800; font-size: 25px;" class="margin-bottom-10"> <b>{{donationsArr.length}} Donations</b> </span>
+              <select class="margin-bottom-20" style="width:200px; height: 40px; border-radius: 0;"
+                      (change)="sortDonations($event.target.value)">
+                <option value="on">Recent</option>
+                <option value="amount">Donation Amount</option>
+              </select>
+            </div>
+
+            <div style="border-bottom: 1px solid #000 !important;"
+                 *ngFor="let item of showDonations(donationsArr)">
+              <div class="margin-top-20 margin-bottom-20">
+                <span class="margin-left-20" style="font-size: 20px;"> {{item.amount}} </span> <span
+                      style="float: right; font-size: 20px;width:50px; color: #9b9b9b"> <b> {{item.like}} </b> </span>
+                <span class="margin-left-20" style="display: block; color: #9b9b9b"> by <span
+                        style="color: #7FB800 "> {{item.name}} </span> </span>
+              </div>
+            </div>
+
+            <div>
+              <div class="margin-top-30" style="font-size: 20px;">
+                <b class="margin-right-20 margin-left-40" style="cursor: pointer;"
+                   (click)="getDonations('previous')" *ngIf="skip > 0"> < </b>
+                <span style="border-right: 1px solid #000 !important;" *ngIf="skip > 0"> </span>
+                <b class="margin-right-20  margin-left-20"> {{skip}} - {{skip + limit}} of
+                  {{donationsArr.length}} donations </b>
+                <b style="border-left: 1px solid #000 !important; cursor: pointer;"
+                   *ngIf="skip+limit < donationsArr.length" (click)="getDonations('next')"> <span
+                        class="margin-left-20"> > </span> </b>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
